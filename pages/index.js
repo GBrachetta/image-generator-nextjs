@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useState } from 'react';
 
 import Form from '../components/Form';
@@ -19,12 +20,14 @@ export default function Home() {
           <Form setImg={setImgUrl} />
         </section>
 
-        <section className="image">
-          <div className="image-container">
-            <h2 className="msg" />
-            <img alt="" id="image" src={imgUrl} />
-          </div>
-        </section>
+        {imgUrl && (
+          <section className="image">
+            <div className="image-container">
+              <h2 className="msg" />
+              <Image alt="" height={400} id="image" src={imgUrl} width={400} />
+            </div>
+          </section>
+        )}
       </main>
     </div>
   );
