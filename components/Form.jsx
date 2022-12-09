@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const Form = ({ setImg }) => {
+const Form = ({ isImageLoading, setImg }) => {
   const [isLoading, setIsLoading] = useState(false);
   const {
     formState: { errors },
@@ -25,9 +25,11 @@ const Form = ({ setImg }) => {
     try {
       setImg('');
       setIsLoading(true);
+      isImageLoading(true);
       const response = await axios(config);
 
       setIsLoading(false);
+      isImageLoading(false);
 
       reset();
       setImg(response.data.imageUrl);

@@ -1,11 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useState } from 'react';
+import Spinner from 'react-spinners/MoonLoader';
 
 import Form from '../components/Form';
 
 export default function Home() {
   const [imgUrl, setImgUrl] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div>
@@ -17,13 +19,23 @@ export default function Home() {
 
       <main>
         <section className="showcase">
-          <Form setImg={setImgUrl} />
+          <Form isImageLoading={setIsLoading} setImg={setImgUrl} />
         </section>
+
+        <Spinner
+          color="#3A646C"
+          cssOverride={{
+            display: 'block',
+            margin: '100px auto',
+          }}
+          loading={isLoading}
+          size={150}
+        />
 
         {imgUrl && (
           <section className="image">
             <div className="image-container">
-              <h2 className="msg" />
+              <h2 className="msg">Here's your image!</h2>
               <Image alt="" height={400} id="image" src={imgUrl} width={400} />
             </div>
           </section>
