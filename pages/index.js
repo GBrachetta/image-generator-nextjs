@@ -36,7 +36,14 @@ export default function Home() {
           <section className="image">
             <div className="image-container">
               <h2 className="msg">Here's your image!</h2>
-              <Image alt="" height={400} id="image" src={imgUrl} width={400} />
+              <Image
+                alt=""
+                height={400}
+                id="image"
+                loading="lazy"
+                src={imgUrl}
+                width={400}
+              />
             </div>
           </section>
         )}

@@ -1,5 +1,8 @@
 {
-  "extends": "@gbrachetta/eslint-config",
+  "extends": [
+    "@gbrachetta/eslint-config",
+    "plugin:@next/next/recommended"
+  ],
   "rules": {
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off"
